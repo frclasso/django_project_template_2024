@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv, dotenv_values
+config = dotenv_values(".env")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-e@s2r%1b@_n5q&luza4=6b^e(%qbomwj3p7id@tu+()u^8bj82"
+# SECRET_KEY = dotenv_values.__get__("AGIL_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -135,3 +138,20 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#EMAIL
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gamil.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USER = "agilcontabil2023@gmail.com"
+EMAIL_PASS = "contabilizando#2023"
+# EMAIL_HOST_USER = config['EMAIL_USER']
+# EMAIL_HOST_PASSWORD = config['EMAIL_PASS']
+
+
+# MAIL GUN
+# EMAIL_BACKEND = 'django_mailgun_mime.backends.MailgunMIMEBackend'
+# MAILGUN_API_KEY = os.environ.get('API_KEY') 
+# MAILGUN_DOMAIN_NAME = os.environ.get('MY_MAILGUN_DOMAIN_NAME') 

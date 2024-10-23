@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class='content-section'>
+        <legend class='border-botton mb-4'>Send Email Form</legend>
+        <label for="email_to">Recipient's Email:</label>
+        <input type="email" id="email_to" name="email_to" required><br><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="10" cols="30" required></textarea><br><br>
+
+        <div class='form-group'>
+            <button class='btn btn-outline-info' type='submit'>Send Email</button>
+        </div>
+    </div>
+{% endblock content %}
+    
